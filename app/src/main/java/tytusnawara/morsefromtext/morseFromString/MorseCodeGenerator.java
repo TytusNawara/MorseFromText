@@ -1,6 +1,7 @@
 package tytusnawara.morsefromtext.morseFromString;
 
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.Collections;
 import java.util.Date;
@@ -103,6 +104,7 @@ public class MorseCodeGenerator implements MorseTranslator {
         OutputType toReturn = queueOfMorse.poll();
             if(toReturn == null)
                 toReturn = OutputType.END_OF_SIGNAL;
+            //Log.d("mojeLogi", toReturn.toString());
             return toReturn;
     }
 
@@ -119,6 +121,8 @@ public class MorseCodeGenerator implements MorseTranslator {
 
                 for(int j = 0; j < morseChar.length; j++)
                     queueOfMorse.add(morseChar[j]);
+
+
 
                 if(i != morseSentence.length() - 1)
                     queueOfMorse.add(SPACE);
